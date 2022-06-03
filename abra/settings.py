@@ -27,12 +27,12 @@ STATIC_URL = '/static/'
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#+@3@49(!)5w@)v4&9)%#(l3mulslrks6nw76b!q@87erblmny'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['roy-melamed-messenger.herokuapp.com']
 
 
 # Application definition
