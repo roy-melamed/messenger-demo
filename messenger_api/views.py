@@ -4,12 +4,13 @@ from rest_framework import status, permissions, generics
 from .models import Messages, Inbox, Outbox
 from .serializers import MessagesSerializer, RegisterSerializer, InboxSerializer, OutboxSerializer
 from django.contrib.auth.models import User
-from django.db.models import Q
+from django.views.decorators.csrf import csrf_exempt
 
 
 class MessagesApiView(APIView):
 
     # 1. write message
+    @csrf_exempt
     def post(self, request, *args, **kwargs):
         data = {
             'content': request.data.get('content'),
@@ -38,6 +39,7 @@ class MessagesApiView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     # 2. get all messages for a specific user
+    @csrf_exempt
     def get(self, request, *args, **kwargs):
         messages = Messages.objects.all()
         serializer = MessagesSerializer(messages, many=True)
@@ -55,6 +57,7 @@ class RegisterView(generics.CreateAPIView):
 class MessagesByUserView(APIView):
 
     # 1. get all messages for a specific user
+    @csrf_exempt
     def get(self, request, *args, **kwargs):
         return Response("HELLO")
         # messages = Messages.objects.filter(Q(receiver=kwargs['id']) | Q(sender=kwargs['id']))
@@ -63,7 +66,7 @@ class MessagesByUserView(APIView):
 
 
 class InboxView(APIView):
-
+    @csrf_exempt
     def get(self, request, *args, **kwargs):
         try:
             # get all the unread messages from the user's inbox
@@ -98,6 +101,7 @@ class InboxView(APIView):
                 return Response(serializer.data, status=status.HTTP_200_OK)
 
     # deleting message from inbox only and not from general messages table
+    @csrf_exempt
     def delete(self, request, *args, **kwargs):
         messages_ids = Inbox.objects.filter(receiver=request.user.id,
                                             message=int(request.query_params['message_id'])).values_list('message')
@@ -110,6 +114,7 @@ class InboxView(APIView):
 class OutboxView(APIView):
 
     # 1. get all messages from the user's outbox
+    @csrf_exempt
     def get(self, request, *args, **kwargs):
         try:
             # get a specific message by id from user's outbox
@@ -129,6 +134,7 @@ class OutboxView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
 
     # deleting message from outbox only and not from general messages table
+    @csrf_exempt
     def delete(self, request, *args, **kwargs):
         messages_ids = Outbox.objects.filter(sender=request.user.id,
                                              message=int(request.query_params['message_id'])).values_list('message')
