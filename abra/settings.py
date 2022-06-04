@@ -86,9 +86,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'd7mq26ijh2h21o',
-        'USER': 'ec2-52-48-159-67.eu-west-1.compute.amazonaws.com',
+        'USER': 'hqyuipwzfjvskw',
         'PASSWORD': 'f0b039e4079522b01adc375f25bda5d181a0ab6deae76a9197cfe4b43b4b399e',
-        'HOST': 'hqyuipwzfjvskw',
+        'HOST': 'ec2-52-48-159-67.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
 }
