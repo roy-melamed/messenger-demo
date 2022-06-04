@@ -85,11 +85,11 @@ WSGI_APPLICATION = 'abra.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'heroku_d205c987db6c9fa',
-        'USER': 'eu-cdbr-west-02.cleardb.net',
-        'PASSWORD': '6bd4aafd',
-        'HOST': 'b7974ed5e2b8a6',
-        'PORT': '3306',
+        'NAME': 'd7mq26ijh2h21o',
+        'USER': 'ec2-52-48-159-67.eu-west-1.compute.amazonaws.com',
+        'PASSWORD': 'f0b039e4079522b01adc375f25bda5d181a0ab6deae76a9197cfe4b43b4b399e',
+        'HOST': 'hqyuipwzfjvskw',
+        'PORT': '5432',
     }
 }
 
