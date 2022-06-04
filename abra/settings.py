@@ -31,6 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['roy-messenger.herokuapp.com', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['roy-messenger.herokuapp.com']
 
 
 # Application definition
@@ -170,6 +171,7 @@ django_heroku.settings(locals())
 del DATABASES['default']['OPTIONS']['sslmode']
 
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_HEADERS = [
     'accept',
