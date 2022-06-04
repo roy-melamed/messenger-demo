@@ -4,10 +4,8 @@ from rest_framework import status, permissions, generics
 from .models import Messages, Inbox, Outbox
 from .serializers import MessagesSerializer, RegisterSerializer, InboxSerializer, OutboxSerializer
 from django.contrib.auth.models import User
-from django.views.decorators.csrf import csrf_exempt
 
 
-@csrf_exempt
 class MessagesApiView(APIView):
 
     # 1. write message
@@ -53,7 +51,6 @@ class RegisterView(generics.CreateAPIView):
 
 
 # should be modified for admin usage only
-@csrf_exempt
 class MessagesByUserView(APIView):
 
     # 1. get all messages for a specific user
@@ -64,7 +61,6 @@ class MessagesByUserView(APIView):
         # return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-@csrf_exempt
 class InboxView(APIView):
 
     def get(self, request, *args, **kwargs):
