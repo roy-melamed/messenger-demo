@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['roy-messenger.herokuapp.com', '127.0.0.1']
-CSRF_TRUSTED_ORIGINS = ['roy-messenger.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://roy-messenger.herokuapp.com']
 
 
 # Application definition
