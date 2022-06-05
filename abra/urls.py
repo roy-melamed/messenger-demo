@@ -8,7 +8,7 @@ from rest_framework_simplejwt.views import (
 from messenger_api.models import Messages
 
 urlpatterns = [
-    path('', admin.site.urls),
+    path('/admin', admin.site.urls),
     path('/api-auth/', include('rest_framework.urls')),
     path('/api/', include('messenger_api.urls')),
     path('/api/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
