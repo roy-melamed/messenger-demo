@@ -55,10 +55,9 @@ class MessagesByUserView(APIView):
 
     # 1. get all messages for a specific user
     def get(self, request, *args, **kwargs):
-        return Response("HELLO")
-        # messages = Messages.objects.filter(Q(receiver=kwargs['id']) | Q(sender=kwargs['id']))
-        # serializer = MessagesSerializer(messages, many=True)
-        # return Response(serializer.data, status=status.HTTP_200_OK)
+        messages = Messages.objects.filter(Q(receiver=kwargs['id']) | Q(sender=kwargs['id']))
+        serializer = MessagesSerializer(messages, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class InboxView(APIView):
