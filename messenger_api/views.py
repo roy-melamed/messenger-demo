@@ -4,8 +4,11 @@ from rest_framework import status, permissions, generics
 from .models import Messages, Inbox, Outbox
 from .serializers import MessagesSerializer, RegisterSerializer, InboxSerializer, OutboxSerializer
 from django.contrib.auth.models import User
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class MessagesApiView(APIView):
 
     # 1. write message
@@ -44,6 +47,7 @@ class MessagesApiView(APIView):
 
 
 # add user for authentication
+@method_decorator(csrf_exempt, name='dispatch')
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     permission_classes = [permissions.AllowAny]
