@@ -17,6 +17,8 @@ class MessagesApiView(APIView):
             'receiver': request.data.get('receiver'),
             'sender': request.user.id,
         }
+        if not User.objects.filter(id=data['receiver']).exists():
+            return Response("Recipient doesn't exist", status=status.HTTP_400_BAD_REQUEST)
         serializer = MessagesSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
