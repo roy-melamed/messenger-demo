@@ -4,6 +4,7 @@ from rest_framework import status, permissions, generics
 from .models import Messages, Inbox, Outbox
 from .serializers import MessagesSerializer, RegisterSerializer, InboxSerializer, OutboxSerializer
 from django.contrib.auth.models import User
+from django.db.models import Q
 
 
 class MessagesApiView(APIView):
