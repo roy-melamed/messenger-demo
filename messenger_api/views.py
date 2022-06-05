@@ -136,4 +136,4 @@ class OutboxView(APIView):
         if not messages_ids:
             return Response("Message id doesn't exist", status=status.HTTP_400_BAD_REQUEST)
         Outbox.objects.filter(sender=request.user.id, message=int(request.query_params['message_id'])).delete()
-        return Response("Message deleted from inbox", status=status.HTTP_200_OK)
+        return Response("Message deleted from outbox", status=status.HTTP_200_OK)
