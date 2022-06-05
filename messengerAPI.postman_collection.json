@@ -1,0 +1,460 @@
+{
+	"info": {
+		"_postman_id": "38986a26-fc4f-4e2b-b10b-b11a87fa701e",
+		"name": "messengerAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21257146"
+	},
+	"item": [
+		{
+			"name": "USERS",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://roy-messenger.herokuapp.com/api/login/",
+							"protocol": "https",
+							"host": [
+								"roy-messenger",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "roy",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ab12341234",
+									"type": "text"
+								},
+								{
+									"key": "password2",
+									"value": "ab12341234",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "roy@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "first_name",
+									"value": "roy",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "melamed",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://roy-messenger.herokuapp.com/api/register/",
+							"protocol": "https",
+							"host": [
+								"roy-messenger",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MESSAGES",
+			"item": [
+				{
+					"name": "get all messages in the database",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0NDQ4NTQwLCJpYXQiOjE2NTQ0NDQ5NDAsImp0aSI6IjFlNWM4NDUyZmU4MjRmYzI4M2I1ZDdkOWY5NGI0NjhhIiwidXNlcl9pZCI6MX0.FVYU2aVP1ibUCe0W72cF_pXLMSOkR_jrPkd--OA6yTU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://roy-messenger.herokuapp.com/api/messages/",
+							"protocol": "https",
+							"host": [
+								"roy-messenger",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"messages",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "write message",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0NDQ4NTQwLCJpYXQiOjE2NTQ0NDQ5NDAsImp0aSI6IjFlNWM4NDUyZmU4MjRmYzI4M2I1ZDdkOWY5NGI0NjhhIiwidXNlcl9pZCI6MX0.FVYU2aVP1ibUCe0W72cF_pXLMSOkR_jrPkd--OA6yTU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"receiver\": 2,\r\n    \"content\": \"Some Content5\",\r\n    \"subject\": \"Some Subject5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://roy-messenger.herokuapp.com/api/messages/",
+							"protocol": "https",
+							"host": [
+								"roy-messenger",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"messages",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all messages of a specific user id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0NDQ4OTg2LCJpYXQiOjE2NTQ0NDUzODYsImp0aSI6ImQ1ZjU2NGUxMWQ4ZDQ4NTA4OTgyYWNmZDhkNWRkNjk5IiwidXNlcl9pZCI6MX0.mWNl9bNOC3j0RzsT1iDtm4s42OQ35WnqBDcBoNexfcY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://roy-messenger.herokuapp.com/api/messages/by-user/1",
+							"protocol": "https",
+							"host": [
+								"roy-messenger",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"messages",
+								"by-user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "INBOX",
+			"item": [
+				{
+					"name": "get messages inbox",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0NDQ4OTg2LCJpYXQiOjE2NTQ0NDUzODYsImp0aSI6ImQ1ZjU2NGUxMWQ4ZDQ4NTA4OTgyYWNmZDhkNWRkNjk5IiwidXNlcl9pZCI6MX0.mWNl9bNOC3j0RzsT1iDtm4s42OQ35WnqBDcBoNexfcY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://roy-messenger.herokuapp.com/api/messages/inbox/",
+							"protocol": "https",
+							"host": [
+								"roy-messenger",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"messages",
+								"inbox",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get unread messages inbox",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0NDQ4OTg2LCJpYXQiOjE2NTQ0NDUzODYsImp0aSI6ImQ1ZjU2NGUxMWQ4ZDQ4NTA4OTgyYWNmZDhkNWRkNjk5IiwidXNlcl9pZCI6MX0.mWNl9bNOC3j0RzsT1iDtm4s42OQ35WnqBDcBoNexfcY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://roy-messenger.herokuapp.com/api/messages/inbox/?unread_only=true",
+							"protocol": "https",
+							"host": [
+								"roy-messenger",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"messages",
+								"inbox",
+								""
+							],
+							"query": [
+								{
+									"key": "unread_only",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "return one message",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0NDQ4OTg2LCJpYXQiOjE2NTQ0NDUzODYsImp0aSI6ImQ1ZjU2NGUxMWQ4ZDQ4NTA4OTgyYWNmZDhkNWRkNjk5IiwidXNlcl9pZCI6MX0.mWNl9bNOC3j0RzsT1iDtm4s42OQ35WnqBDcBoNexfcY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://roy-messenger.herokuapp.com/api/messages/inbox/?message_id=2",
+							"protocol": "https",
+							"host": [
+								"roy-messenger",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"messages",
+								"inbox",
+								""
+							],
+							"query": [
+								{
+									"key": "message_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete message by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0NDQ4OTg2LCJpYXQiOjE2NTQ0NDUzODYsImp0aSI6ImQ1ZjU2NGUxMWQ4ZDQ4NTA4OTgyYWNmZDhkNWRkNjk5IiwidXNlcl9pZCI6MX0.mWNl9bNOC3j0RzsT1iDtm4s42OQ35WnqBDcBoNexfcY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://roy-messenger.herokuapp.com/api/messages/inbox/?message_id=2",
+							"protocol": "https",
+							"host": [
+								"roy-messenger",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"messages",
+								"inbox",
+								""
+							],
+							"query": [
+								{
+									"key": "message_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OUTBOX",
+			"item": [
+				{
+					"name": "get messages outbox",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0NDQ4OTg2LCJpYXQiOjE2NTQ0NDUzODYsImp0aSI6ImQ1ZjU2NGUxMWQ4ZDQ4NTA4OTgyYWNmZDhkNWRkNjk5IiwidXNlcl9pZCI6MX0.mWNl9bNOC3j0RzsT1iDtm4s42OQ35WnqBDcBoNexfcY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://roy-messenger.herokuapp.com/api/messages/outbox/",
+							"protocol": "https",
+							"host": [
+								"roy-messenger",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"messages",
+								"outbox",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete message by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0NDQ4OTg2LCJpYXQiOjE2NTQ0NDUzODYsImp0aSI6ImQ1ZjU2NGUxMWQ4ZDQ4NTA4OTgyYWNmZDhkNWRkNjk5IiwidXNlcl9pZCI6MX0.mWNl9bNOC3j0RzsT1iDtm4s42OQ35WnqBDcBoNexfcY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://roy-messenger.herokuapp.com/api/messages/outbox/?message_id=4",
+							"protocol": "https",
+							"host": [
+								"roy-messenger",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"messages",
+								"outbox",
+								""
+							],
+							"query": [
+								{
+									"key": "message_id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
