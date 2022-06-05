@@ -5,6 +5,7 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
+from messenger_api.models import Messages
 
 urlpatterns = [
     path('', admin.site.urls),
@@ -13,3 +14,4 @@ urlpatterns = [
     path('/api/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('/api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
+admin.site.register(Messages)
