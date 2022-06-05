@@ -85,13 +85,21 @@ WSGI_APPLICATION = 'abra.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'd7mq26ijh2h21o',
+    #     'USER': 'hqyuipwzfjvskw',
+    #     'PASSWORD': 'f0b039e4079522b01adc375f25bda5d181a0ab6deae76a9197cfe4b43b4b399e',
+    #     'HOST': 'ec2-52-48-159-67.eu-west-1.compute.amazonaws.com',
+    #     'PORT': '5432',
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd7mq26ijh2h21o',
-        'USER': 'hqyuipwzfjvskw',
-        'PASSWORD': 'f0b039e4079522b01adc375f25bda5d181a0ab6deae76a9197cfe4b43b4b399e',
-        'HOST': 'ec2-52-48-159-67.eu-west-1.compute.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'messenger',
+        'USER': 'root',
+        'PASSWORD': 'root1234',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
