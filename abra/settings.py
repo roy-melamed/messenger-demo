@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'abra.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'd7mq26ijh2h21o',
         'USER': 'hqyuipwzfjvskw',
         'PASSWORD': 'f0b039e4079522b01adc375f25bda5d181a0ab6deae76a9197cfe4b43b4b399e',
